@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>장 건강 자가 테스트</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
+  <style>
+    @keyframes slideFadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      padding: 30px 20px;
+      max-width: 640px;
+      margin: auto;
+      line-height: 1.7;
+      background-color: #f9f9f9;
+      animation: slideFadeIn 0.8s ease-out;
+      transition: opacity 0.6s ease-out;
+    }
+    h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+    p {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      margin-bottom: 12px;
+      gap: 8px;
+    }
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #4CAF50;
+    }
+    button {
+      margin-top: 25px;
+      padding: 14px 24px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 300px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #388e3c;
+    }
+    .fade-out {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📝 장 건강 자가 테스트</h2>
+  <p>다음 항목 중 최근 1주일 내에 해당하는 것이 있는지 체크해보세요.</p>
+
+  <form id="testForm">
+    <label><input type="checkbox" name="q1" /> 배변 습관이 평소와 다르게 느껴진 적이 있다.</label>
+    <label><input type="checkbox" name="q2" /> 식사 후 복부가 자주 더부룩하거나 가스가 찬다.</label>
+    <label><input type="checkbox" name="q3" /> 방귀가 자주 나오고 냄새가 강하다.</label>
+    <label><input type="checkbox" name="q4" /> 설사나 변비가 자주 반복된다.</label>
+    <label><input type="checkbox" name="q5" /> 스트레스를 받으면 복통/배변 변화가 생긴다.</label>
+    <label><input type="checkbox" name="q6" /> 특정 음식을 먹으면 배가 아프거나 속이 불편하다.</label>
+    <label><input type="checkbox" name="q7" /> 최근 면역력이 약해졌고 감기에 자주 걸린다.</label>
+    <label><input type="checkbox" name="q8" /> 피부 트러블이 늘어난 느낌이다.</label>
+    <label><input type="checkbox" name="q9" /> 입냄새가 심하거나 입안이 자주 건조하다.</label>
+    <label><input type="checkbox" name="q10" /> 수면의 질이 떨어지고 자주 피곤하다.</label>
+
+    <button type="button" onclick="checkResult()">결과 보기</button>
+  </form>
+
+  <script>
+    function checkResult() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      let count = 0;
+      checkboxes.forEach(box => {
+        if (box.checked) count++;
+      });
+
+      let nextPage = "";
+      if (count <= 2) {
+        nextPage = "result-low.html";
+      } else if (count <= 5) {
+        nextPage = "result-mid.html";
+      } else {
+        nextPage = "result-high.html";
+      }
+
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = nextPage;
+      }, 600);
+    }
+  </script>
+
+</body>
+</html>
