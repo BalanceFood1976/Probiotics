@@ -2,73 +2,83 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>장 건강 결과 - 이상 신호</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
   <style>
     body {
+      background-color: #ffecb3;
       font-family: 'Noto Sans KR', sans-serif;
       padding: 30px 20px;
       max-width: 640px;
-      margin: auto;
-      background-color: #fff6f6;
-      line-height: 1.8;
-      text-align: center;
-    }
-    .result {
-      background: #ffebee;
-      border-left: 6px solid #e53935;
-      padding: 24px;
-      border-radius: 10px;
+      margin: 0 auto;
       text-align: left;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    .result h2 {
-      margin-top: 0;
-      color: #b71c1c;
-      font-size: 20px;
+    .result-box {
+      border-left: 6px solid #ff5722;
+      padding-left: 16px;
+      margin-bottom: 30px;
     }
-    .line {
+    .result-box h2, .result-box p, button, span {
       opacity: 0;
-      transform: translateY(10px);
-      animation: lineFade 0.6s ease-out forwards;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
     }
-    .line:nth-of-type(2) { animation-delay: 0.2s; }
-    .line:nth-of-type(3) { animation-delay: 0.6s; }
+    .result-box h2 {
+      color: #ff5722;
+      font-size: 22px;
+      margin-bottom: 10px;
+      animation-delay: 0.3s;
+    }
+    .result-box p {
+      font-size: 16px;
+      line-height: 1.6;
+      animation-delay: 0.6s;
+    }
+    button {
+      margin-top: 20px;
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #ff5722;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s ease;
+      animation-delay: 0.9s;
+    }
+    button:hover {
+      background-color: #e64a19;
+    }
+    button:active {
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+    }
+    span {
+      animation-delay: 1.2s;
+      display: inline-block;
+      margin-top: 20px;
+    }
 
-    @keyframes lineFade {
+    @keyframes fadeInUp {
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-
-    .btn {
-      margin-top: 30px;
-      padding: 12px 24px;
-      background: #e53935;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-      width: 100%;
-      max-width: 300px;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background: #b71c1c;
-    }
   </style>
 </head>
 <body>
-  <h2>📝 장 건강 자가 진단 결과</h2>
-  <div class="result">
+  <div class="result-box">
     <h2>❗ 장 건강 이상 신호! (6개 이상 체크)</h2>
     <p class="line">🚨 장이 보내는 신호를 무시하면 만성 질환으로 이어질 수 있어요.</p>
     <p class="line">🩺 정확한 진단을 위해 병원 상담을 권장합니다.</p>
     <p class="line">🥬 장에 좋은 음식 + 스트레스 관리 + 수면 개선을 실천해보세요!</p>
   </div>
-  <button class="btn" onclick="window.location.href='index.html'">🔁 다시 테스트하기</button>
+
+  <button onclick="window.location.href='index.html'">🔁 다시 테스트하기</button><br>
+  <span style="color: #8cb3be;"><i><a style="color: #8cb3be;" href="https://balancefood1976.tistory.com/">
+    <span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">▶ 블로그 돌아가기</span></a></i></span>
 </body>
 </html>
